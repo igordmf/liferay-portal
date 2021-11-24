@@ -129,11 +129,47 @@ definition {
 	}
 
 	@description = "LPS-135397 - Verify if it's possible to add a Field for the Block with three columns"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanAddFieldForBlockThreeColumns {
 
-		// TODO LPS-141508 CanAddFieldForBlockThreeColumns pending implementation
+		ObjectAdmin.addObjectViaAPI(
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
+
+		ObjectAdmin.addObjectFieldViaAPI(
+			fieldLabelName = "Custom Field",
+			fieldName = "customObjectField",
+			fieldType = "String",
+			isRequired = "false",
+			objectName = "CustomObject");
+
+		ObjectAdmin.addObjectLayoutViaAPI(
+			layoutName = "Layout Name",
+			objectName = "CustomObject");
+
+		ObjectAdmin.openObjectAdmin();
+
+		ObjectPortlet.selectCustomObject(label = "Custom Object");
+
+		ObjectAdmin.goToLayoutsTab();
+
+		ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
+
+		SelectFrame(locator1 = "IFrame#IFRAME");
+
+		Click(locator1 = "ObjectAdmin#LAYOUT_LAYOUT_TAB");
+
+		ObjectAdmin.addTabFieldsOnLayout(
+			tabName = "Field Tab",
+			blockName = "Block Name",
+			fieldLabelName = "Custom Field",
+			columnsNumber = "3"
+			);
+
+		CreateObject.assertFieldAddedOnBlock(fieldLabelName = "Custom Field");
+
+		
 
 	}
 
