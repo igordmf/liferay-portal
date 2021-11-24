@@ -18,6 +18,15 @@ definition {
 		AssertElementPresent(locator1 = "CreateObject#DISABLED_OBJECT_NAME");
 	}
 
+	macro assertFieldAddedOnBlock {
+		
+		AssertElementPresent(
+			key_fieldLabelName = "${fieldLabelName}",
+			locator1 = "CreateObject#FIELD_ADDED_ON_BLOCK");
+
+		
+	}
+
 	macro assertFieldName {
 		AssertTextEquals(
 			locator1 = "CreateObject#FIELD_NAME",
