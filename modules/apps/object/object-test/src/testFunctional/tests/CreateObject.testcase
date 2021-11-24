@@ -1741,11 +1741,37 @@ definition {
 	}
 
 	@description = "LPS-135397 - Verify if it's possible to set the block as Collapsible"
-	@ignore = "Test Stub"
 	@priority = "4"
 	test CanSetBlockCollapsible {
 
-		// TODO LPS-141505 CanSetBlockCollapsible pending implementation
+		ObjectAdmin.addObjectViaAPI(
+            labelName = "Custom Object",
+            objectName = "CustomObject",
+            pluralLabelName = "Custom Objects");
+
+        ObjectAdmin.addObjectLayoutViaAPI(
+            layoutName = "Layout Name",
+            objectName = "CustomObject");
+
+        ObjectAdmin.openObjectAdmin();
+
+        ObjectPortlet.selectCustomObject(label = "Custom Object");
+
+        ObjectAdmin.goToLayoutsTab();
+
+        ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
+
+        ObjectAdmin.goToLayoutTabOnLayouts();
+
+        ObjectAdmin.addTabFieldsOnLayout(tabName = "Field Tab");
+
+        ObjectAdmin.addLayoutBlockViaUI(blockName = "Block Name");
+
+		CreateObject.checkToggleCollapsible();
+
+		CreateObject.assertToggleCollapsibleChecked();
+
+		
 
 	}
 
