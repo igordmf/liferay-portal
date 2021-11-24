@@ -32,12 +32,39 @@ definition {
 	}
 
 	@description = "LPS-135397 - Verify if it's possible to add a Block"
-	@ignore = "Test Stub"
 	@priority = "5"
 	test CanAddBlock {
 		property portal.acceptance = "true";
 
-		// TODO LPS-141504 CanAddBlock pending implementation
+		ObjectAdmin.addObjectViaAPI(
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
+
+		ObjectAdmin.addObjectLayoutViaAPI(
+			layoutName = "Layout Name",
+			objectName = "CustomObject");
+
+		ObjectAdmin.openObjectAdmin();
+
+		ObjectPortlet.selectCustomObject(label = "Custom Object");
+
+		ObjectAdmin.goToLayoutsTab();
+
+		ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
+
+		ObjectAdmin.goToLayoutTabOnLayouts();
+
+		ObjectAdmin.addTabFieldsOnLayout(tabName = "Field Tab");
+
+		ObjectAdmin.addLayoutBlockViaUI(blockName = "Block Name");
+
+		ObjectAdmin.assertBlockIsPresent(fieldBlockName = "Block Name");
+
+
+
+
+
 
 	}
 

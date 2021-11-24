@@ -111,6 +111,16 @@
 		<td></td>
 	</tr>
 	<tr>
+		<td>FIELD_BLOCK_ADD_FIELD_BUTTON</td>
+		<td>//div[contains(@class,"object-admin-panel__header object-admin-panel__header--expanded")]//button[contains(text(),'Add Field')]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>FIELD_BLOCK_NAME</td>
+		<td>//div[contains(@class,"object-admin-panel__header object-admin-panel__header--expanded")]//h3[contains(text(),'${key_fieldBlockName}')]</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td>NAME_CUSTOM_OBJECT</td>
 		<td>//input[@id='objectDefinitionName']</td>
 		<td></td>
