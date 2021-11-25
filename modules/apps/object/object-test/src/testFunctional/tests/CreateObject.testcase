@@ -113,10 +113,10 @@ definition {
 		Click(locator1 = "ObjectAdmin#LAYOUT_LAYOUT_TAB");
 
 		ObjectAdmin.addTabFieldsOnLayout(
-			tabName = "Field Tab",
 			blockName = "Block Name",
+			columnsNumber = "1",
 			fieldLabelName = "Custom Field",
-			columnsNumber = "1");
+			tabName = "Field Tab");
 
 		CreateObject.assertFieldAddedOnBlock(fieldLabelName = "Custom Field");
 	}
@@ -153,10 +153,10 @@ definition {
 		Click(locator1 = "ObjectAdmin#LAYOUT_LAYOUT_TAB");
 
 		ObjectAdmin.addTabFieldsOnLayout(
-			tabName = "Field Tab",
 			blockName = "Block Name",
+			columnsNumber = "3",
 			fieldLabelName = "Custom Field",
-			columnsNumber = "3");
+			tabName = "Field Tab");
 
 		CreateObject.assertFieldAddedOnBlock(fieldLabelName = "Custom Field");
 	}
@@ -193,10 +193,10 @@ definition {
 		Click(locator1 = "ObjectAdmin#LAYOUT_LAYOUT_TAB");
 
 		ObjectAdmin.addTabFieldsOnLayout(
-			tabName = "Field Tab",
 			blockName = "Block Name",
+			columnsNumber = "2",
 			fieldLabelName = "Custom Field",
-			columnsNumber = "2");
+			tabName = "Field Tab");
 
 		CreateObject.assertFieldAddedOnBlock(fieldLabelName = "Custom Field");
 	}
@@ -374,7 +374,7 @@ definition {
 			fieldType = "String",
 			isRequired = "false",
 			objectName = "CustomObject");
-	
+
 		ObjectAdmin.openObjectAdmin();
 
 		ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
@@ -396,18 +396,17 @@ definition {
 		Click(locator1 = "ObjectAdmin#LAYOUT_INFO_TAB");
 
 		Type(
-			value1 = "Layout Updated",
-			locator1 = "ObjectAdmin#LAYOUT_BASIC_INFO_NAME_FIELD");
+			locator1 = "ObjectAdmin#LAYOUT_BASIC_INFO_NAME_FIELD",
+			value1 = "Layout Updated");
 
 		Button.clickCancel();
 
 		Refresh();
 
 		AssertTextNotEquals(
-			locator1 = "ObjectAdmin#TABLE_LIST_TITLE",
 			key_name = "Layout",
+			locator1 = "ObjectAdmin#TABLE_LIST_TITLE",
 			value1 = "Layout Updated");
-
 	}
 
 	@description = "LPS-135551 - Verify it is possible to change the Panel Category Key after publishing the Object"
@@ -764,10 +763,10 @@ definition {
 		Click(locator1 = "ObjectAdmin#LAYOUT_LAYOUT_TAB");
 
 		ObjectAdmin.addTabFieldsOnLayout(
-			tabName = "Field Tab",
 			blockName = "Block Name",
+			columnsNumber = "1",
 			fieldLabelName = "Custom Field",
-			columnsNumber = "1");
+			tabName = "Field Tab");
 
 		CreateObject.deleteFieldOnBlock();
 
@@ -1743,36 +1742,32 @@ definition {
 	@description = "LPS-135397 - Verify if it's possible to set the block as Collapsible"
 	@priority = "4"
 	test CanSetBlockCollapsible {
-
 		ObjectAdmin.addObjectViaAPI(
-            labelName = "Custom Object",
-            objectName = "CustomObject",
-            pluralLabelName = "Custom Objects");
+			labelName = "Custom Object",
+			objectName = "CustomObject",
+			pluralLabelName = "Custom Objects");
 
-        ObjectAdmin.addObjectLayoutViaAPI(
-            layoutName = "Layout Name",
-            objectName = "CustomObject");
+		ObjectAdmin.addObjectLayoutViaAPI(
+			layoutName = "Layout Name",
+			objectName = "CustomObject");
 
-        ObjectAdmin.openObjectAdmin();
+		ObjectAdmin.openObjectAdmin();
 
-        ObjectPortlet.selectCustomObject(label = "Custom Object");
+		ObjectPortlet.selectCustomObject(label = "Custom Object");
 
-        ObjectAdmin.goToLayoutsTab();
+		ObjectAdmin.goToLayoutsTab();
 
-        ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
+		ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
 
-        ObjectAdmin.goToLayoutTabOnLayouts();
+		ObjectAdmin.goToLayoutTabOnLayouts();
 
-        ObjectAdmin.addTabFieldsOnLayout(tabName = "Field Tab");
+		ObjectAdmin.addTabFieldsOnLayout(tabName = "Field Tab");
 
-        ObjectAdmin.addLayoutBlockViaUI(blockName = "Block Name");
+		ObjectAdmin.addLayoutBlockViaUI(blockName = "Block Name");
 
 		CreateObject.checkToggleCollapsible();
 
 		CreateObject.assertToggleCollapsibleChecked();
-
-		
-
 	}
 
 	@description = "LPS-135389 - Verify it is possible to set a different language value for a Field Label"
@@ -2001,7 +1996,7 @@ definition {
 			fieldType = "String",
 			isRequired = "false",
 			objectName = "CustomObject");
-	
+
 		ObjectAdmin.openObjectAdmin();
 
 		ObjectAdmin.selectKebabMenuOption(kebabOption = "View");
@@ -2023,18 +2018,17 @@ definition {
 		Click(locator1 = "ObjectAdmin#LAYOUT_INFO_TAB");
 
 		Type(
-			value1 = "Layout Updated",
-			locator1 = "ObjectAdmin#LAYOUT_BASIC_INFO_NAME_FIELD");
+			locator1 = "ObjectAdmin#LAYOUT_BASIC_INFO_NAME_FIELD",
+			value1 = "Layout Updated");
 
 		Button.clickSave();
 
 		Refresh();
 
 		AssertTextEquals(
-			locator1 = "ObjectAdmin#TABLE_LIST_TITLE",
 			key_name = "Layout Updated",
+			locator1 = "ObjectAdmin#TABLE_LIST_TITLE",
 			value1 = "Layout Updated");
-
 	}
 
 	@description = "LPS-135635 - Verify it is possible to update the Label of a Field after the Object is published"
@@ -2561,12 +2555,12 @@ definition {
 			locator1 = "ObjectAdmin#ANY_TAB_ON_ENTRY");
 
 		AssertElementPresent(
-			locator1 = "ObjectAdmin#LABEL_FIELD_GROUP_TITLE",
-			key_labelName = "Block 1");
+			key_labelName = "Block 1",
+			locator1 = "ObjectAdmin#LABEL_FIELD_GROUP_TITLE");
 
 		AssertElementPresent(
-			locator1 = "ObjectAdmin#LABEL_FIELD_ENTRY",
-			key_labelName = "Custom Field");
+			key_labelName = "Custom Field",
+			locator1 = "ObjectAdmin#LABEL_FIELD_ENTRY");
 
 		AssertElementPresent(
 			key_text = "Save",
