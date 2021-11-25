@@ -40,7 +40,6 @@ public class AssetTagsNavigationDisplayContext {
 		HttpServletRequest httpServletRequest, RenderRequest renderRequest) {
 
 		_httpServletRequest = httpServletRequest;
-
 		_renderRequest = renderRequest;
 
 		_classNameId = PrefsParamUtil.getLong(
