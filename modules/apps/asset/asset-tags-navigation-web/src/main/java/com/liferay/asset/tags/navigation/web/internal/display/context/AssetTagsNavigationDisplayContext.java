@@ -29,23 +29,18 @@ import java.util.Map;
 
 import javax.portlet.RenderRequest;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * @author Vendel Toreki
  */
 public class AssetTagsNavigationDisplayContext {
 
-	public AssetTagsNavigationDisplayContext(
-		HttpServletRequest httpServletRequest, RenderRequest renderRequest) {
-
-		_httpServletRequest = httpServletRequest;
+	public AssetTagsNavigationDisplayContext(RenderRequest renderRequest) {
 		_renderRequest = renderRequest;
 
 		_classNameId = PrefsParamUtil.getLong(
-			_renderRequest.getPreferences(), _renderRequest, "classNameId");
+			renderRequest.getPreferences(), renderRequest, "classNameId");
 
-		_themeDisplay = (ThemeDisplay)_httpServletRequest.getAttribute(
+		_themeDisplay = (ThemeDisplay)renderRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
 		_scopeGroupId = _themeDisplay.getScopeGroupId();
@@ -105,7 +100,6 @@ public class AssetTagsNavigationDisplayContext {
 
 	private List<AssetTag> _assetTags;
 	private final long _classNameId;
-	private final HttpServletRequest _httpServletRequest;
 	private final RenderRequest _renderRequest;
 	private Map<String, Integer> _scopedAssetCounts;
 	private final long _scopeGroupId;

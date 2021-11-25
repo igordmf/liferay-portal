@@ -18,7 +18,6 @@ import com.liferay.asset.tags.navigation.constants.AssetTagsNavigationPortletKey
 import com.liferay.asset.tags.navigation.web.internal.display.context.AssetTagsNavigationDisplayContext;
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
-import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.IOException;
@@ -69,14 +68,10 @@ public class AssetTagsCloudPortlet extends MVCPortlet {
 
 		renderRequest.setAttribute(
 			WebKeys.PORTLET_DISPLAY_CONTEXT,
-			new AssetTagsNavigationDisplayContext(
-				_portal.getHttpServletRequest(renderRequest), renderRequest));
+			new AssetTagsNavigationDisplayContext(renderRequest));
 
 		super.render(renderRequest, renderResponse);
 	}
-
-	@Reference
-	private Portal _portal;
 
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.asset.tags.navigation.web)(&(release.schema.version>=1.0.0)(!(release.schema.version>=2.0.0))))"
