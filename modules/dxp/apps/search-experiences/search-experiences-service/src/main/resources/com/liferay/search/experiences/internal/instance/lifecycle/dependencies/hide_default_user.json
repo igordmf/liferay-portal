@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Hide the instance default user account from being searched"
+		"en_US": "Hide the instance default user account from being searched."
 	},
 	"elementDefinition": {
 		"category": "hide",

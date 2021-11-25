@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Boost contents having at least one of the given tags"
+		"en_US": "Boost contents having at least one of the given tags."
 	},
 	"elementDefinition": {
 		"category": "boost",

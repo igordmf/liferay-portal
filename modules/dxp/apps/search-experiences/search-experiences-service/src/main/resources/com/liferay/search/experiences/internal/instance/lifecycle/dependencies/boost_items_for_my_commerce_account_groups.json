@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Boost Commerce items for my account groups. Applies only to products using Account Group Filtering."
+		"en_US": "Boost Commerce items for my account groups. This only applies to products using account group filtering."
 	},
 	"elementDefinition": {
 		"category": "commerce",

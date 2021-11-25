@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Give a gaussian boost to contents modified recently"
+		"en_US": "Give a Gaussian boost to contents modified recently."
 	},
 	"elementDefinition": {
 		"category": "boost",

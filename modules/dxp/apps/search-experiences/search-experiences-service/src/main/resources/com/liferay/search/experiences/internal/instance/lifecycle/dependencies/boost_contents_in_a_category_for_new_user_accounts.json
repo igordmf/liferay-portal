@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Boost contents in a category for user accounts created withing the given time"
+		"en_US": "Boost contents in a category for user accounts created within the given time."
 	},
 	"elementDefinition": {
 		"category": "conditional",

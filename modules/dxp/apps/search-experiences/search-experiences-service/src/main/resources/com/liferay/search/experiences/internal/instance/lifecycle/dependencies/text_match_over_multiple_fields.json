@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Search for a text match over multiple text fields"
+		"en_US": "Search for a text match over multiple text fields."
 	},
 	"elementDefinition": {
 		"category": "match",

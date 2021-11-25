@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Do not search for comments"
+		"en_US": "Do not search for comments."
 	},
 	"elementDefinition": {
 		"category": "hide",

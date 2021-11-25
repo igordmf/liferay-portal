@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Boost contents in a category based on the time of day"
+		"en_US": "Boost contents in a category based on the time of day."
 	},
 	"elementDefinition": {
 		"category": "conditional",

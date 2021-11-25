@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Enable searching using the Lucene syntax"
+		"en_US": "Enable searching using the Lucene syntax."
 	},
 	"elementDefinition": {
 		"category": "match",

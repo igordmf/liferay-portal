@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Show only the latest HEAD version of Web Content articles"
+		"en_US": "Show only the latest HEAD version of Web Content articles."
 	},
 	"elementDefinition": {
 		"category": "filter",

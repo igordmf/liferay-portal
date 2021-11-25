@@ -1,6 +1,6 @@
 {
 	"description_i18n": {
-		"en_US": "Boost contents in a category for the given period of time"
+		"en_US": "Boost contents in a category for the given period of time."
 	},
 	"elementDefinition": {
 		"category": "conditional",
