@@ -120,9 +120,9 @@ public class AccountEntryDisplay {
 		return _logoId;
 	}
 
-	public String getLogoURL(String pathImage) {
+	public String getLogoURL(String imagePath) {
 		return StringBundler.concat(
-			pathImage, "/account_entry_logo?img_id=", _logoId, "&t=",
+			imagePath, "/account_entry_logo?img_id=", _logoId, "&t=",
 			WebServerServletTokenUtil.getToken(_logoId));
 	}
 
