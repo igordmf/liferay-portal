@@ -156,11 +156,14 @@ public class RangeSerDes {
 
 			sb.append("\"value\": ");
 
-			sb.append("\"");
-
-			sb.append(_escape(range.getValue()));
-
-			sb.append("\"");
+			if (range.getValue() instanceof String) {
+				sb.append("\"");
+				sb.append((String)range.getValue());
+				sb.append("\"");
+			}
+			else {
+				sb.append(range.getValue());
+			}
 		}
 
 		if (range.getValues() != null) {

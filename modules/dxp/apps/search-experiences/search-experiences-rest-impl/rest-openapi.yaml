@@ -84,14 +84,14 @@ components:
                             type: object
                         lte:
                             type: object
+                        parameterName:
+                            type: string
                         value:
                             type: object
                         values:
                             items:
                                 type: object
                             type: array
-                        parameterName:
-                            type: string
                     type: object
             type: object
         Configuration:

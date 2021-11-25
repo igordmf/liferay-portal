@@ -422,7 +422,10 @@ public class Range implements Serializable {
 
 			sb.append("\"value\": ");
 
-			if (value instanceof String) {
+			if (value instanceof Map) {
+				sb.append(JSONFactoryUtil.createJSONObject((Map<?, ?>)value));
+			}
+			else if (value instanceof String) {
 				sb.append("\"");
 				sb.append((String)value);
 				sb.append("\"");
