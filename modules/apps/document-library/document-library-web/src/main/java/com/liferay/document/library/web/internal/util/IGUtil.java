@@ -50,8 +50,6 @@ public class IGUtil {
 
 		long rootFolderId = getRootFolderId(httpServletRequest);
 
-		long repositoryId = getRepositoryId(folder, httpServletRequest);
-
 		List<Folder> ancestorFolders = Collections.emptyList();
 
 		if ((folder != null) && (folder.getFolderId() != rootFolderId)) {
@@ -74,16 +72,20 @@ public class IGUtil {
 
 		Collections.reverse(new ArrayList<>(ancestorFolders));
 
+		long repositoryId = getRepositoryId(folder, httpServletRequest);
+
 		for (Folder ancestorFolder : ancestorFolders) {
 			portletURL.setParameter(
-				"folderId", String.valueOf(ancestorFolder.getFolderId()));
-			portletURL.setParameter(
 				"repositoryId", String.valueOf(repositoryId));
+			portletURL.setParameter(
+				"folderId", String.valueOf(ancestorFolder.getFolderId()));
 
 			PortalUtil.addPortletBreadcrumbEntry(
 				httpServletRequest, ancestorFolder.getName(),
 				portletURL.toString());
 		}
+
+		portletURL.setParameter("repositoryId", String.valueOf(repositoryId));
 
 		long folderId = DLFolderConstants.DEFAULT_PARENT_FOLDER_ID;
 
@@ -92,7 +94,6 @@ public class IGUtil {
 		}
 
 		portletURL.setParameter("folderId", String.valueOf(folderId));
-		portletURL.setParameter("repositoryId", String.valueOf(repositoryId));
 
 		PortalUtil.addPortletBreadcrumbEntry(
 			httpServletRequest, folder.getName(), portletURL.toString());
