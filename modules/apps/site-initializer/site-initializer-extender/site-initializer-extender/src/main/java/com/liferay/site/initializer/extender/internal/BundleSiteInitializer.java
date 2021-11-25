@@ -324,6 +324,7 @@ public class BundleSiteInitializer implements SiteInitializer {
 			};
 
 			_invoke(() -> _addPermissions(serviceContext));
+
 			_invoke(() -> _addDDMStructures(serviceContext));
 			_invoke(() -> _addFragmentEntries(serviceContext));
 			_invoke(() -> _addSAPEntries(serviceContext));
