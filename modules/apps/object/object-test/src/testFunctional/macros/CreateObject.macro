@@ -30,6 +30,14 @@ definition {
 			value1 = "${fieldName}");
 	}
 
+	macro assertFieldNotPresentInBlock {
+		AssertElementNotPresent(
+			key_fieldLabelName = "${fieldLabelName}",
+			locator1 = "CreateObject#FIELD_ADDED_ON_BLOCK");
+		
+
+	}
+
 	macro assertFieldType {
 		AssertSelectedLabel(
 			locator1 = "CreateObject#FIELD_TYPE",
@@ -86,6 +94,14 @@ definition {
 
 	macro checkToggleMandatory {
 		Check.checkToggleSwitch(locator1 = "CreateObject#TOGGLE_MANDATORY");
+	}
+
+	macro deleteFieldOnBlock {
+		Click(locator1 = "CreateObject#KEBAB_MENU_BLOCK_FIELD");
+
+		Click(locator1 = "CreateObject#KEBAB_MENU_BLOCK_FIELD_OPTION_DELETE");
+		
+
 	}
 
 	macro editLabel {

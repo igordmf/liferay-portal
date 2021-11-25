@@ -110,6 +110,16 @@
 		<td>//div[(@class='table-list-title') and contains(.,'${key_labelName}')]</td>
 		<td></td>
 	</tr>
+	<tr>
+		<td>KEBAB_MENU_BLOCK_FIELD</td>
+		<td>xpath=(//*[contains(@class,'lexicon-icon-ellipsis')])[3]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>KEBAB_MENU_BLOCK_FIELD_OPTION_DELETE</td>
+		<td>xpath=(//button[(@class='dropdown-item') and contains(text(),'Delete')])[3]</td>
+		<td></td>
+	</tr>
 </tbody>
 </table>
 </body>
