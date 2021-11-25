@@ -41,6 +41,6 @@ import org.osgi.service.component.annotations.Component;
 )
 public class SXPPowerToolsPortlet extends MVCPortlet {
 
-	// TODO: Add FF or other method to enable/disable the related @Components.
+	// TODO Add feature flag
 
 }
