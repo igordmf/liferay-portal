@@ -1612,7 +1612,6 @@ definition {
 		}
 
 		task ("View CP at able.com:9080") {
-
 			Navigator.openSpecificURL(url = "http://www.able.com:9080/group/control_panel/manage?p_p_id=com_liferay_users_admin_web_portlet_UsersAdminPortlet");
 
 			User.viewCP(
