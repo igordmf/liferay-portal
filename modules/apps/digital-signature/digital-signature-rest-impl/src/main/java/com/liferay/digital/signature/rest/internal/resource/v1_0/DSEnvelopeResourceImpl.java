@@ -62,21 +62,22 @@ public class DSEnvelopeResourceImpl extends BaseDSEnvelopeResourceImpl {
 		throws Exception {
 
 		for (DSDocument document : dsEnvelope.getDsDocument()) {
-			if (Validator.isNotNull(
+			if (Validator.isNull(
 					document.getFileEntryExternalReferenceCode())) {
 
-				DLFileEntry dlFileEntry =
-					_dlFileEntryLocalService.
-						getFileEntryByExternalReferenceCode(
-							siteId,
-							document.getFileEntryExternalReferenceCode());
+				continue;
+			}
 
-				if (dlFileEntry != null) {
-					String base64 = Base64.encode(
-						FileUtil.getBytes(dlFileEntry.getContentStream()));
+			DLFileEntry dlFileEntry =
+				_dlFileEntryLocalService.getFileEntryByExternalReferenceCode(
+					siteId,
+					document.getFileEntryExternalReferenceCode());
 
-					document.setData(base64);
-				}
+			if (dlFileEntry != null) {
+				String base64 = Base64.encode(
+					FileUtil.getBytes(dlFileEntry.getContentStream()));
+
+				document.setData(base64);
 			}
 		}
 
