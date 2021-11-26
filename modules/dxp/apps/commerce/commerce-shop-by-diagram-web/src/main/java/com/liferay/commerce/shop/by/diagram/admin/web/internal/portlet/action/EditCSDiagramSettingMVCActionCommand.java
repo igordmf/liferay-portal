@@ -77,9 +77,8 @@ public class EditCSDiagramSettingMVCActionCommand extends BaseMVCActionCommand {
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
 
-		boolean publish = ParamUtil.getBoolean(actionRequest, "publish", true);
-
 		String cmd = ParamUtil.getString(actionRequest, Constants.CMD);
+		boolean publish = ParamUtil.getBoolean(actionRequest, "publish", true);
 
 		try {
 			if (cmd.equals("updateCSDiagramSetting")) {
