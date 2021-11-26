@@ -73,12 +73,13 @@ public class DSEnvelopeResourceImpl extends BaseDSEnvelopeResourceImpl {
 					siteId,
 					document.getFileEntryExternalReferenceCode());
 
-			if (dlFileEntry != null) {
-				String base64 = Base64.encode(
-					FileUtil.getBytes(dlFileEntry.getContentStream()));
-
-				document.setData(base64);
+			if (dlFileEntry == null) {
+				continue;
 			}
+
+			document.setData(
+				Base64.encode(
+					FileUtil.getBytes(dlFileEntry.getContentStream())));
 		}
 
 		return DSEnvelopeUtil.toDSEnvelope(dsEnvelope);
