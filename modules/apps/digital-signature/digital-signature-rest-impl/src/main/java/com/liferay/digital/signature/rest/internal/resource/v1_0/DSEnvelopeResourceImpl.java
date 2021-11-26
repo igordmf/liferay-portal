@@ -70,8 +70,7 @@ public class DSEnvelopeResourceImpl extends BaseDSEnvelopeResourceImpl {
 
 			DLFileEntry dlFileEntry =
 				_dlFileEntryLocalService.fetchFileEntryByExternalReferenceCode(
-					siteId,
-					document.getFileEntryExternalReferenceCode());
+					siteId, document.getFileEntryExternalReferenceCode());
 
 			if (dlFileEntry == null) {
 				continue;
