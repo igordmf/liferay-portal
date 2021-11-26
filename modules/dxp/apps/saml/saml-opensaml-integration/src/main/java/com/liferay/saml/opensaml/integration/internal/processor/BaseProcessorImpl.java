@@ -373,8 +373,6 @@ public abstract class BaseProcessorImpl
 				_fieldExpressionHandlerRegistry.getFieldExpressionHandler(
 					prefix);
 
-			_prefix = prefix;
-
 			fieldExpressionHandler.bindProcessorContext(
 				getProcessorContext(prefix));
 		}
@@ -385,7 +383,6 @@ public abstract class BaseProcessorImpl
 	private M _model;
 	private final Map<Map.Entry<Class<?>, Serializable>, Object> _objectCache =
 		new HashMap<>();
-	private String _prefix;
 	private final Queue<Map.Entry<Integer, UnsafeConsumer<ServiceContext, ?>>>
 		_unsafeConsumers = new PriorityQueue<>(
 			Comparator.comparingInt(Map.Entry::getKey));
