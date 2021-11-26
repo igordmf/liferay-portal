@@ -1554,7 +1554,6 @@ definition {
 		}
 
 		task ("Login and reindex search indexes") {
-
 			User.firstLoginUI(
             	password = "test",
             	userEmailAddress = "test@liferay.com");
