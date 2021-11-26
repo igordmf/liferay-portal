@@ -49,8 +49,8 @@ public class ObjectDefinitionsFieldsDisplayContext {
 		ModelResourcePermission<ObjectDefinition>
 			objectDefinitionModelResourcePermission) {
 
-		_ffClobObjectFieldTypeConfigurationActivator =			ffClobObjectFieldTypeConfigurationActivator;
-
+		_ffClobObjectFieldTypeConfigurationActivator =
+			ffClobObjectFieldTypeConfigurationActivator;
 		_objectDefinitionModelResourcePermission =
 			objectDefinitionModelResourcePermission;
 
