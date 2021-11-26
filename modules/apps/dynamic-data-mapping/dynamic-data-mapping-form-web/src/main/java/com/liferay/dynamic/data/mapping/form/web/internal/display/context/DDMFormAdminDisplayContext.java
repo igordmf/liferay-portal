@@ -1231,13 +1231,13 @@ public class DDMFormAdminDisplayContext {
 			return false;
 		}
 
+		LocalDate localDate = DateParameterUtil.getLocalDate(
+			ddmFormInstanceSettings.expirationDate());
+
 		ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
 		TimeZone timeZone = themeDisplay.getTimeZone();
-
-		LocalDate localDate = DateParameterUtil.getLocalDate(
-			ddmFormInstanceSettings.expirationDate());
 
 		return localDate.isBefore(LocalDate.now(ZoneId.of(timeZone.getID())));
 	}
