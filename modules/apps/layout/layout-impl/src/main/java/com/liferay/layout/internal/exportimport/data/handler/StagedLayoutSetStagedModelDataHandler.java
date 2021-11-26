@@ -801,11 +801,10 @@ public class StagedLayoutSetStagedModelDataHandler
 				if (_log.isDebugEnabled()) {
 					_log.debug(
 						StringBundler.concat(
-							"We do not want to update layout ",
+							"Do not update priority for layout ",
 							layoutElement.attributeValue("uuid"),
-							" priority because there are elements at the same ",
-							"level of the page hierarchy with the SKIP ",
-							"action"));
+							" because there are elements at the same level of ",
+							"the page hierarchy with the SKIP action"));
 				}
 
 				continue;
@@ -858,8 +857,8 @@ public class StagedLayoutSetStagedModelDataHandler
 			if (_log.isDebugEnabled()) {
 				_log.debug(
 					StringBundler.concat(
-						"Priority of layout ", layout.getUuid(),
-						" updated from ", layout.getPriority(), " to ",
+						"Updated priority for layout ", layout.getUuid(),
+						" from ", layout.getPriority(), " to ",
 						newLayoutPriority));
 			}
 
