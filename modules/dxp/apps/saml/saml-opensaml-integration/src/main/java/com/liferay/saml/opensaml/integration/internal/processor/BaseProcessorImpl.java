@@ -325,7 +325,7 @@ public abstract class BaseProcessorImpl
 		}
 		else if (publicIdentifier != null) {
 			throw new SystemException(
-				"The processing model can not have a public identifier");
+				"The processing model cannot have a public identifier");
 		}
 
 		Map.Entry<Class<?>, Serializable> objectKey =
