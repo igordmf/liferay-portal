@@ -887,7 +887,7 @@ public class BundleSiteInitializer implements SiteInitializer {
 				).toString());
 		}
 
-		Page<DocumentFolder> listDocumentFoldersPage =
+		Page<DocumentFolder> documentFoldersPage =
 			documentFolderResource.getSiteDocumentFoldersPage(
 				groupId, true, null, null,
 				documentFolderResource.toFilter(
@@ -896,7 +896,7 @@ public class BundleSiteInitializer implements SiteInitializer {
 				null, null);
 
 		DocumentFolder existingDocumentFolder =
-			listDocumentFoldersPage.fetchFirstItem();
+			documentFoldersPage.fetchFirstItem();
 
 		if (existingDocumentFolder == null) {
 			if (documentFolderId != null) {
@@ -980,14 +980,14 @@ public class BundleSiteInitializer implements SiteInitializer {
 			Document document = null;
 
 			if (documentFolderId != null) {
-				Page<Document> listDocumentsPage =
+				Page<Document> documentsPage =
 					documentResource.getDocumentFolderDocumentsPage(
 						documentFolderId, false, null, null,
 						documentResource.toFilter(
 							StringBundler.concat("title eq '", fileName, "'")),
 						null, null);
 
-				Document existingDocument = listDocumentsPage.fetchFirstItem();
+				Document existingDocument = documentsPage.fetchFirstItem();
 
 				if (existingDocument == null) {
 					document = documentResource.postDocumentFolderDocument(
@@ -1015,14 +1015,14 @@ public class BundleSiteInitializer implements SiteInitializer {
 				}
 			}
 			else {
-				Page<Document> listDocumentsPage =
+				Page<Document> documentsPage =
 					documentResource.getSiteDocumentsPage(
 						groupId, false, null, null,
 						documentResource.toFilter(
 							StringBundler.concat("title eq '", fileName, "'")),
 						null, null);
 
-				Document existingDocument = listDocumentsPage.fetchFirstItem();
+				Document existingDocument = documentsPage.fetchFirstItem();
 
 				if (existingDocument == null) {
 					document = documentResource.postSiteDocument(
