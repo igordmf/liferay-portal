@@ -1,11 +1,15 @@
 import {useQuery} from '@apollo/client';
-import {useContext, useEffect} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {
 	onboardingPageGuard,
 	overviewPageGuard,
 	usePageGuard,
 } from '~/common/hooks/usePageGuard';
-import {getKoroneikiAccounts} from '~/common/services/liferay/graphql/queries';
+import {
+	getAccountSubscriptionGroupsByFilter,
+	getKoroneikiAccounts,
+} from '~/common/services/liferay/graphql/queries';
+import SubscriptionBar from '../../components/SubscriptionBar';
 import {AppContext} from '../../context';
 import {actionTypes} from '../../context/reducer';
 import {CUSTOM_EVENTS} from '../../utils/constants';
@@ -26,6 +30,17 @@ const Overview = ({userAccount}) => {
 			},
 		}
 	);
+	const {
+		data: accountSubscriptionsData,
+		loading: isAccSubsLoading,
+	} = useQuery(getAccountSubscriptionGroupsByFilter, {
+		variables: {
+			// add 'and hasActivation eq ${true}'
+
+			filter: `accountKey eq '${project.accountKey}' `,
+		},
+	});
+	const [subscriptionTags, setSubscriptionTags] = useState(() => []);
 
 	useEffect(() => {
 		if (!isLoading && data) {
@@ -44,14 +59,28 @@ const Overview = ({userAccount}) => {
 				})
 			);
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [data, isLoading]);
+
+		if (!isAccSubsLoading && accountSubscriptionsData) {
+			setSubscriptionTags(
+				accountSubscriptionsData?.c?.accountSubscriptionGroups?.items ||
+					[]
+			);
+		}
+	}, [accountSubscriptionsData, data, dispatch, isAccSubsLoading, isLoading]);
+
+	// eslint-disable-next-line no-console
+	console.log(subscriptionTags);
 
 	if (isLoading || isLoadingKoroneiki) {
 		return <div>Overview Skeleton</div>;
 	}
 
-	return <div>Overview Page</div>;
+	return (
+		<div>
+			Overview Page
+			<SubscriptionBar subscriptionTags={subscriptionTags} />
+		</div>
+	);
 };
 
 export default Overview;
