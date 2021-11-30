@@ -17,10 +17,12 @@ const SubscriptionsCards = ({accountKey, selectedTag}) => {
   });
 
   const {items} = subscriptionsByTag?.c?.accountSubscriptions || []
+  // eslint-disable-next-line no-console
+  console.log(items);
 
   return(
-    <>{!isSubscriptionsByTagLoading && items.map((s, index) => (
-      <CardSubscription key={index}/>
+    <>{!isSubscriptionsByTagLoading && items.map((item, index) => (
+      <CardSubscription cardSubscriptionData={item} key={index} />
     ))}</>
   )
 }

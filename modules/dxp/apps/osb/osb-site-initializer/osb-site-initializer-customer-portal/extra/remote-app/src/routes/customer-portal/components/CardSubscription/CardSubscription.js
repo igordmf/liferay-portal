@@ -2,20 +2,28 @@ import { useModal } from '@clayui/modal';
 import { useState } from 'react';
 import ModalCardSubscription from '../ModalCardSubscription';
 
-
-const CardSubscription = () => {
-
+const CardSubscription = ({cardSubscriptionData}) => {
   const [visible, setVisible] = useState(false);
-
   const { observer, onClose } = useModal({
     onClose: () => setVisible(false)
   });
 
+  const parseDate = (rawDate) => {
+    const date = new Date(rawDate);
+    const month = date.toLocaleDateString('default', {month: 'short'});
+    const day = date.getDate();
+    const year = date.getFullYear();
+  
+    return `${month} ${day}, ${year}`;
+  };
+
   return (
     <>
       {visible && <ModalCardSubscription observer={observer} onClose={onClose} />}
+      <div className="card-subscription" onClick={() => {
 
-      <div className="card-subscription" onClick={() => setVisible(true)}>
+        setVisible(true)
+        }}>
         <div className="card-body">
           {/* <div>
           <ClayCheckbox checked={value} onChange={() => setValue(val => !val)} />
@@ -26,15 +34,15 @@ const CardSubscription = () => {
         </div> */}
 
           <div className="d-flex head-text justify-content-center mb-1 row" type="text">
-            Prodution
+            {cardSubscriptionData?.name || " - "}
           </div>
 
           <div className="d-flex head-text-2 justify-content-center row" type="text">
-            Instance size: 1
+            {`Instance size: ${cardSubscriptionData?.instanceSize || " - "}`}
           </div>
 
           <div className="card-date d-flex justify-content-center mb-4 row" type="text">
-            05/01/2021 - 05/01/2024
+            {`${parseDate(cardSubscriptionData?.startDate)} - ${parseDate(cardSubscriptionData?.endDate)}`}
           </div>
 
           <div className="badge-card-subscription d-flex justify-content-center">
