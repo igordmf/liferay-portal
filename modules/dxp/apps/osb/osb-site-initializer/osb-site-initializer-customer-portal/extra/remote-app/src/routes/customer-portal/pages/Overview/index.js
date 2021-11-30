@@ -1,5 +1,5 @@
-import {useQuery} from '@apollo/client';
-import {useContext, useEffect, useState} from 'react';
+import { useQuery } from '@apollo/client';
+import { useContext, useEffect, useState } from 'react';
 import {
 	onboardingPageGuard,
 	overviewPageGuard,
@@ -9,20 +9,25 @@ import {
 	getAccountSubscriptionGroupsByFilter,
 	getKoroneikiAccounts,
 } from '~/common/services/liferay/graphql/queries';
-import SubscriptionBar from '../../components/SubscriptionBar';
-import {AppContext} from '../../context';
-import {actionTypes} from '../../context/reducer';
-import {CUSTOM_EVENTS} from '../../utils/constants';
+import SubscriptionsBar from '../../components/SubscriptionsBar';
+import SubscriptionsCards from '../../components/SubscriptionsCards';
+import { AppContext } from '../../context';
+import { actionTypes } from '../../context/reducer';
+import { CUSTOM_EVENTS } from '../../utils/constants';
 
-const Overview = ({userAccount}) => {
-	const [{project}, dispatch] = useContext(AppContext);
-	const {isLoading} = usePageGuard(
+const Overview = ({ userAccount }) => {
+	const [{ project }, dispatch] = useContext(AppContext);
+  const [subscriptionsTags, setSubscriptionsTags] = useState(() => []);
+  const [selectedTag, setSelectedTag] = useState(() => '')
+
+	const { isLoading } = usePageGuard(
 		userAccount,
 		overviewPageGuard,
 		onboardingPageGuard,
 		project.accountKey
 	);
-	const {data, isLoading: isLoadingKoroneiki} = useQuery(
+
+	const { data, isLoading: isLoadingKoroneiki } = useQuery(
 		getKoroneikiAccounts,
 		{
 			variables: {
@@ -30,17 +35,15 @@ const Overview = ({userAccount}) => {
 			},
 		}
 	);
+
 	const {
 		data: accountSubscriptionsData,
-		loading: isAccSubsLoading,
+		loading: isAccountSubscriptionsLoading,
 	} = useQuery(getAccountSubscriptionGroupsByFilter, {
 		variables: {
-			// add 'and hasActivation eq ${true}'
-
-			filter: `accountKey eq '${project.accountKey}' `,
+			filter: `accountKey eq '${project.accountKey}'`,
 		},
 	});
-	const [subscriptionTags, setSubscriptionTags] = useState(() => []);
 
 	useEffect(() => {
 		if (!isLoading && data) {
@@ -59,17 +62,16 @@ const Overview = ({userAccount}) => {
 				})
 			);
 		}
+	}, [data, dispatch, isLoading]);
 
-		if (!isAccSubsLoading && accountSubscriptionsData) {
-			setSubscriptionTags(
+  useEffect(() => {
+    if (!isAccountSubscriptionsLoading && accountSubscriptionsData) {
+			setSubscriptionsTags(
 				accountSubscriptionsData?.c?.accountSubscriptionGroups?.items ||
 					[]
 			);
 		}
-	}, [accountSubscriptionsData, data, dispatch, isAccSubsLoading, isLoading]);
-
-	// eslint-disable-next-line no-console
-	console.log(subscriptionTags);
+  }, [accountSubscriptionsData, isAccountSubscriptionsLoading])
 
 	if (isLoading || isLoadingKoroneiki) {
 		return <div>Overview Skeleton</div>;
@@ -78,7 +80,9 @@ const Overview = ({userAccount}) => {
 	return (
 		<div>
 			Overview Page
-			<SubscriptionBar subscriptionTags={subscriptionTags} />
+			{!isAccountSubscriptionsLoading && <SubscriptionsBar selectedTag={selectedTag} setSelectedTag={setSelectedTag} subscriptionsTags={subscriptionsTags} />}
+
+      <SubscriptionsCards accountKey={project.accountKey} selectedTag={selectedTag}/>
 		</div>
 	);
 };

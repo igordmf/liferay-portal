@@ -13,10 +13,10 @@ export const getAccountSubscriptionGroupsByFilter = gql`
 `;
 
 export const getAccountSubscriptions = gql`
-	query accountSubscriptions($accountSubscriptionGroupERC: String) {
+	query accountSubscriptions($filter: String) {
 		c {
 			accountSubscriptions(
-				accountSubscriptionGroupERC: accountSubscriptionGroupERC
+				filter: $filter
 			) {
 				items {
 					accountKey
