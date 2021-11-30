@@ -1,8 +1,6 @@
 import { useQuery } from '@apollo/client';
-import ClayButton from '@clayui/button';
-import ClayModal, {useModal} from '@clayui/modal';
-import {useState} from 'react';
 import {getAccountSubscriptions} from '~/common/services/liferay/graphql/queries';
+import CardSubscription from '../CardSubscription/CardSubscription';
 
 const SubscriptionsCards = ({accountKey, selectedTag}) => {
   const parseAccountSubscriptionGroupERC = (tagName) => {
@@ -22,48 +20,9 @@ const SubscriptionsCards = ({accountKey, selectedTag}) => {
 
   return(
     <>{!isSubscriptionsByTagLoading && items.map((s, index) => (
-      <Component key={index} name={s.name}/>
+      <CardSubscription key={index}/>
     ))}</>
   )
 }
-
-const Component = ({name}) => {
-  const [visible, setVisible] = useState(false);
-  const { observer, onClose } = useModal({
-    onClose: () => setVisible(false)
-  });
-
-  return (
-    <>
-      {visible && (
-        <ClayModal
-          observer={observer}
-          size="lg"
-          status="info"
-        >
-          <ClayModal.Header>Title</ClayModal.Header>
-
-          <ClayModal.Body>
-            <h1>Hello world!</h1>
-          </ClayModal.Body>
-
-          <ClayModal.Footer
-            first={
-              <ClayButton.Group spaced>
-                <ClayButton displayType="secondary">Secondary</ClayButton>
-
-                <ClayButton displayType="secondary">Secondary</ClayButton>
-              </ClayButton.Group>
-            }
-            last={<ClayButton onClick={onClose}>Primary</ClayButton>}
-          />
-        </ClayModal>
-      )}
-      <ClayButton displayType="primary" onClick={() => setVisible(true)}>
-        {name}
-      </ClayButton>
-    </>
-  );
-};
 
 export default SubscriptionsCards;

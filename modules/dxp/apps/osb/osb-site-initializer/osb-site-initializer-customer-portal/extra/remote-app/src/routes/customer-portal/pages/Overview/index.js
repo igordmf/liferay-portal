@@ -26,7 +26,7 @@ const Overview = ({ userAccount }) => {
 		onboardingPageGuard,
 		project.accountKey
 	);
-
+  
 	const { data, isLoading: isLoadingKoroneiki } = useQuery(
 		getKoroneikiAccounts,
 		{
