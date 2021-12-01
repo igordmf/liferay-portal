@@ -2,11 +2,17 @@ import { useModal } from '@clayui/modal';
 import { useState } from 'react';
 import ModalCardSubscription from '../ModalCardSubscription';
 
-const CardSubscription = ({cardSubscriptionData}) => {
+const CardSubscription = ({ cardSubscriptionData }) => {
   const [visible, setVisible] = useState(false);
   const { observer, onClose } = useModal({
     onClose: () => setVisible(false)
   });
+
+  const parseAccountSubscriptionTerms = (tagName) => {
+    return tagName.toLowerCase().replace(' ', '-');
+  };
+
+  const accountSubscriptionERC = `${cardSubscriptionData.accountSubscriptionGroupERC}_${parseAccountSubscriptionTerms(cardSubscriptionData.name)}`;
 
   const parseDate = (rawDate) => {
     const date = new Date(rawDate);
@@ -19,7 +25,7 @@ const CardSubscription = ({cardSubscriptionData}) => {
 
   return (
     <>
-      {visible && <ModalCardSubscription observer={observer} onClose={onClose} />}
+      {visible && <ModalCardSubscription accountSubscriptionERC={accountSubscriptionERC} observer={observer} onClose={onClose} />}
       <div className="card-subscription" onClick={() => {
 
         setVisible(true)
@@ -54,6 +60,4 @@ const CardSubscription = ({cardSubscriptionData}) => {
   )
 }
 
-
 export default CardSubscription;
-

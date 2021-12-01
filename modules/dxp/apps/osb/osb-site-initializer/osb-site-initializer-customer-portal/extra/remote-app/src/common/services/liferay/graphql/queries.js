@@ -1,5 +1,26 @@
 import {gql} from '@apollo/client';
 
+export const getAccountSubscriptionsTerms = gql`
+  query accountSubscriptionsTerms($filter: String) {
+    c {
+      accountSubscriptionTerms (filter: $filter){
+        items {
+          accountKey
+          accountSubscriptionERC
+          accountSubscriptionGroupERC
+          accountSubscriptionTermId
+          c_accountSubscriptionTermId
+          endDate
+          instanceSize
+          quantity
+          startDate
+          subscriptionTermStatus
+        }
+      }
+    }
+  }
+`;
+
 export const getAccountSubscriptionGroupsByFilter = gql`
 	query accountSubscriptionGroups($filter: String) {
 		c {
