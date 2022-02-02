@@ -90,3 +90,22 @@ export async function getActivationDownloadKey(
 
 	return response;
 }
+
+export async function getAllActivationKeys(
+	accountKey,
+	licenseKeyDownloadURL,
+	sessionId
+) {
+	// eslint-disable-next-line @liferay/portal/no-global-fetch
+	const response = await fetch(
+		`${licenseKeyDownloadURL}/accounts/${accountKey}/license-keys/export`,
+
+		{
+			headers: {
+				'Okta-Session-ID': sessionId,
+			},
+		}
+	);
+
+	return response;
+}
