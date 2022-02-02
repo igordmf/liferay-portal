@@ -17,7 +17,7 @@ import {getIconSpriteMap} from '../../../../common/providers/ClayProvider';
 import {getAllActivationKeys} from '../../../../common/services/liferay/rest/raysource/LicenseKeys';
 import downloadFromBlob from '../../../../common/utils/downloadFromBlob';
 import {
-	ALERT_DOWNLOAD_TEXT,
+	ALERT_ACTIVATION_KEYS_DOWNLOAD_TEXT,
 	ALERT_DOWNLOAD_TYPE,
 	AUTO_CLOSE_ALERT_TIME,
 	EXTENSION_FILE_TYPES,
@@ -58,7 +58,6 @@ const ActivationKeysActionsButton = ({accountKey, sessionId}) => {
 
 	const activationKeysActionsItems = [
 		{
-			href: '#three',
 			icon: (
 				<ClayIcon className="mr-1 text-neutral-4" symbol="download" />
 			),
@@ -82,7 +81,11 @@ const ActivationKeysActionsButton = ({accountKey, sessionId}) => {
 						onClose={() => setActivationKeysdownloadStatus('')}
 						spritemap={getIconSpriteMap()}
 					>
-						{ALERT_DOWNLOAD_TEXT[activationKeysdownloadStatus]}
+						{
+							ALERT_ACTIVATION_KEYS_DOWNLOAD_TEXT[
+								activationKeysdownloadStatus
+							]
+						}
 					</ClayAlert>
 				</ClayAlert.ToastContainer>
 			)}

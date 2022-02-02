@@ -9,7 +9,7 @@
  * distribution rights of the Software.
  */
 
-export const ALERT_DOWNLOAD_TEXT = {
+export const ALERT_ACTIVATION_KEYS_DOWNLOAD_TEXT = {
 	danger: 'Unable to export keys, please try again.',
 	success: 'Activation key details successfully exported.',
 };
