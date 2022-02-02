@@ -9,7 +9,10 @@
  * distribution rights of the Software.
  */
 
+import {ALERT_DOWNLOAD_TYPE} from './alertDownloadType';
+
 export const ALERT_ACTIVATION_KEYS_DOWNLOAD_TEXT = {
-	danger: 'Unable to export keys, please try again.',
-	success: 'Activation key details successfully exported.',
+	[ALERT_DOWNLOAD_TYPE.danger]: 'Unable to export keys, please try again.',
+	[ALERT_DOWNLOAD_TYPE.success]:
+		'Activation key details successfully exported.',
 };
