@@ -74,7 +74,7 @@ const ActivationKeysActionsButton = ({accountKey, sessionId}) => {
 						autoClose={
 							AUTO_CLOSE_ALERT_TIME[activationKeysdownloadStatus]
 						}
-						className="px-4 py-3 text-paragraph"
+						className="cp-activation-key-download-alert px-4 py-3 text-paragraph"
 						displayType={
 							ALERT_DOWNLOAD_TYPE[activationKeysdownloadStatus]
 						}
