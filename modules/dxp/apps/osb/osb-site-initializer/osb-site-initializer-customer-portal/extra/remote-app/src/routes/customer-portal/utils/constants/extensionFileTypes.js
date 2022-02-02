@@ -12,6 +12,7 @@
 import {CONTENT_TYPES} from '.';
 
 export const EXTENSION_FILE_TYPES = {
+	[CONTENT_TYPES.csv]: '.csv',
 	[CONTENT_TYPES.json]: '.json',
 	[CONTENT_TYPES.xml]: '.xml',
 	[CONTENT_TYPES.xmlText]: '.xml',

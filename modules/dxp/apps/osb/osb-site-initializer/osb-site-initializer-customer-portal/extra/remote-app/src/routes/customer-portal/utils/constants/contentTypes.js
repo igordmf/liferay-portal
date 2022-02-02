@@ -10,6 +10,7 @@
  */
 
 export const CONTENT_TYPES = {
+	csv: 'text/csv',
 	json: 'application/json',
 	xml: 'application/xml',
 	xmlText: 'text/xml',
