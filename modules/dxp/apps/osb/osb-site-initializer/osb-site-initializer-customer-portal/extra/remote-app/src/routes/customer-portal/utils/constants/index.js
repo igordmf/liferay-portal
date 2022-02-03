@@ -11,7 +11,7 @@
 
 export * from './alertActivationKeysDownloadText';
 export * from './alertDownloadType';
-export * from './autoCloseAlertTime';
+export * from './autoCloseDownloadAlertTime';
 export * from './contentTypes';
 export * from './customEventTypes';
 export * from './extensionFileTypes';

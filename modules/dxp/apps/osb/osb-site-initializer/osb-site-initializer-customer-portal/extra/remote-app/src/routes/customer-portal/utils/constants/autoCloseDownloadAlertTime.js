@@ -9,7 +9,7 @@
  * distribution rights of the Software.
  */
 
-export const AUTO_CLOSE_ALERT_TIME = {
+export const AUTO_CLOSE_DOWNLOAD_ALERT_TIME = {
 	fail: false,
 	success: 2000,
 };
