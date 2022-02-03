@@ -1,12 +1,10 @@
-.cp-activation-keys-drop-down-item {
-	&:hover {
-		background-color: var(--color-action-primary-hover-lighten);
-		color: var(--color-action-primary-hover) !important;
+.cp-activation-keys-drop-down-item:hover {
+	background-color: var(--color-action-primary-hover-lighten);
+	color: var(--color-action-primary-hover) !important;
 
-		svg {
-			color: var(--color-action-primary-hover) !important;
-			opacity: 0.5;
-		}
+	svg {
+		color: var(--color-action-primary-hover) !important;
+		opacity: 0.5;
 	}
 }
 
