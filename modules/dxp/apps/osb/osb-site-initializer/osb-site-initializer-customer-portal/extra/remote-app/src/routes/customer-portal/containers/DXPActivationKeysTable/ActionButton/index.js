@@ -14,7 +14,7 @@ import ClayIcon from '@clayui/icon';
 import {useState} from 'react';
 import {useApplicationProvider} from '../../../../../common/context/AppPropertiesProvider';
 import {getIconSpriteMap} from '../../../../../common/providers/ClayProvider';
-import {getAllActivationKeys} from '../../../../../common/services/liferay/rest/raysource/LicenseKeys';
+import {exportLicenseKeys} from '../../../../../common/services/liferay/rest/raysource/LicenseKeys';
 import downloadFromBlob from '../../../../../common/utils/downloadFromBlob';
 import ButtonDropDown from '../../../components/ButtonDropDown';
 
@@ -35,7 +35,7 @@ const ActivationKeysActionsButton = ({accountKey, sessionId}) => {
 	] = useState('');
 
 	const downloadAllKeysDetails = async () => {
-		const license = await getAllActivationKeys(
+		const license = await exportLicenseKeys(
 			accountKey,
 			licenseKeyDownloadURL,
 			sessionId

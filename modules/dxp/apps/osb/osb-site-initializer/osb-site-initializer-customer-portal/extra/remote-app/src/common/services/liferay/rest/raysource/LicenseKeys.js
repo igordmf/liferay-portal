@@ -91,7 +91,7 @@ export async function getActivationDownloadKey(
 	return response;
 }
 
-export async function getAllActivationKeys(
+export async function exportLicenseKeys(
 	accountKey,
 	licenseKeyDownloadURL,
 	sessionId
