@@ -17,6 +17,7 @@ import Table from '../../../../common/components/Table';
 import {useApplicationProvider} from '../../../../common/context/AppPropertiesProvider';
 import {getActivationLicenseKey} from '../../../../common/services/liferay/rest/raysource/LicenseKeys';
 import {useCustomerPortal} from '../../context';
+import ActivationKeysActionsButton from './Bar';
 import {
 	ACTIVATION_KEYS_LICENSE_FILTER_TYPES,
 	ACTIVATION_STATUS,
@@ -35,8 +36,8 @@ import {getTooltipTitles} from './utils/getTooltipTitles';
 const MAX_ITEMS = 9999;
 const PAGE = 1;
 
-const DXPActivationKeysTable = () => {
-	const [{assetsPath, project, sessionId}] = useCustomerPortal();
+const DXPActivationKeysTable = ({project, sessionId}) => {
+	const [{assetsPath}] = useCustomerPortal();
 	const {licenseKeyDownloadURL} = useApplicationProvider();
 
 	const [activationKeys, setActivationKeys] = useState([]);
@@ -154,7 +155,7 @@ const DXPActivationKeysTable = () => {
 
 	return (
 		<div>
-			<div className="align-center cp-dxp-activation-key-container d-flex justify-content-between">
+			<div className="align-center cp-dxp-activation-key-container d-flex justify-content-between mb-2">
 				<h3 className="m-0">Activation Keys</h3>
 
 				<RoundedGroupButtons
@@ -163,12 +164,17 @@ const DXPActivationKeysTable = () => {
 				/>
 			</div>
 
+			<ActivationKeysActionsButton
+				accountKey={project.accountKey}
+				sessionId={sessionId}
+			/>
+
 			<ClayTooltipProvider
 				contentRenderer={({title}) => getTooltipTitles(title)}
 				delay={100}
 			>
 				<Table
-					className="border-0 cp-dxp-activation-key-table mt-5"
+					className="border-0 cp-dxp-activation-key-table"
 					columns={COLUMNS}
 					hasCheckbox
 					hasPagination

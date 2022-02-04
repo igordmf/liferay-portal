@@ -9,11 +9,11 @@
  * distribution rights of the Software.
  */
 
-import ActivationKeysActionsButton from '../ActivationKeysActionsButton';
+import ActivationKeysActionsButton from '../ActionButton';
 
 const ActivationKeysManagementBar = ({accountKey, sessionId}) => {
 	return (
-		<div className="align-items-center bg-neutral-1 d-flex justify-content-between px-3 py-3 rounded">
+		<div className="align-items-center bg-neutral-1 d-flex justify-content-between mt-4 px-3 py-3 rounded">
 			<div>
 				<ActivationKeysActionsButton
 					accountKey={accountKey}

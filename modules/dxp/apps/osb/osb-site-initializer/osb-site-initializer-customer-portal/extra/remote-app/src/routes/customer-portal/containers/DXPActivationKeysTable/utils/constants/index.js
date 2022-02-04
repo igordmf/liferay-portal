@@ -12,3 +12,4 @@
 export * from './activationKeysLicenseFilterTypes';
 export * from './activationStatus';
 export * from './columns';
+export * from './alertActivationKeysDownloadText';

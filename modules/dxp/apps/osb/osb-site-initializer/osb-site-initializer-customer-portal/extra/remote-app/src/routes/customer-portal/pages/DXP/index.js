@@ -14,7 +14,7 @@ import DeveloperKeysLayouts from '../../layouts/DeveloperKeysLayout';
 const DXP = ({project, sessionId}) => {
 	return (
 		<div className="mr-4">
-			<DXPActivationKeysTable />
+			<DXPActivationKeysTable project={project} sessionId={sessionId} />
 
 			<DeveloperKeysLayouts>
 				<DeveloperKeysLayouts.Inputs

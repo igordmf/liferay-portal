@@ -9,7 +9,7 @@
  * distribution rights of the Software.
  */
 
-import {ALERT_DOWNLOAD_TYPE} from './alertDownloadType';
+import {ALERT_DOWNLOAD_TYPE} from '../../../../utils/constants';
 
 export const ALERT_ACTIVATION_KEYS_DOWNLOAD_TEXT = {
 	[ALERT_DOWNLOAD_TYPE.danger]: 'Unable to export keys, please try again.',

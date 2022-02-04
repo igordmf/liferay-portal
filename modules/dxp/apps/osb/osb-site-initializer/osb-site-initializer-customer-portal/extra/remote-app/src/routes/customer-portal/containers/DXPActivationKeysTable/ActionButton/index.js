@@ -12,18 +12,19 @@
 import ClayAlert from '@clayui/alert';
 import ClayIcon from '@clayui/icon';
 import {useState} from 'react';
-import {useApplicationProvider} from '../../../../common/context/AppPropertiesProvider';
-import {getIconSpriteMap} from '../../../../common/providers/ClayProvider';
-import {getAllActivationKeys} from '../../../../common/services/liferay/rest/raysource/LicenseKeys';
-import downloadFromBlob from '../../../../common/utils/downloadFromBlob';
+import {useApplicationProvider} from '../../../../../common/context/AppPropertiesProvider';
+import {getIconSpriteMap} from '../../../../../common/providers/ClayProvider';
+import {getAllActivationKeys} from '../../../../../common/services/liferay/rest/raysource/LicenseKeys';
+import downloadFromBlob from '../../../../../common/utils/downloadFromBlob';
+import ButtonDropDown from '../../../components/ButtonDropDown';
+
 import {
-	ALERT_ACTIVATION_KEYS_DOWNLOAD_TEXT,
 	ALERT_DOWNLOAD_TYPE,
 	AUTO_CLOSE_DOWNLOAD_ALERT_TIME,
 	EXTENSION_FILE_TYPES,
 	STATUS_CODE,
-} from '../../utils/constants';
-import ButtonDropDown from '../ButtonDropDown';
+} from '../../../utils/constants';
+import {ALERT_ACTIVATION_KEYS_DOWNLOAD_TEXT} from '../utils/constants';
 
 const ActivationKeysActionsButton = ({accountKey, sessionId}) => {
 	const {licenseKeyDownloadURL} = useApplicationProvider();

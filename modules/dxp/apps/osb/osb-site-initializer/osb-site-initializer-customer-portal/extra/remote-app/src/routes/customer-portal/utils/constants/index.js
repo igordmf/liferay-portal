@@ -9,7 +9,6 @@
  * distribution rights of the Software.
  */
 
-export * from './alertActivationKeysDownloadText';
 export * from './alertDownloadType';
 export * from './autoCloseDownloadAlertTime';
 export * from './contentTypes';
