@@ -13,8 +13,8 @@ import ActivationKeysActionsButton from '../ActionButton';
 
 const ActivationKeysManagementBar = ({accountKey, sessionId}) => {
 	return (
-		<div className="align-items-center bg-neutral-1 d-flex justify-content-between mt-4 px-3 py-3 rounded">
-			<div>
+		<div className="align-items-center bg-neutral-1 d-flex justify-content-between mt-4 px-2 py-3 rounded">
+			<div className="ml-1">
 				<ActivationKeysActionsButton
 					accountKey={accountKey}
 					sessionId={sessionId}
