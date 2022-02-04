@@ -17,7 +17,7 @@ import Table from '../../../../common/components/Table';
 import {useApplicationProvider} from '../../../../common/context/AppPropertiesProvider';
 import {getActivationLicenseKey} from '../../../../common/services/liferay/rest/raysource/LicenseKeys';
 import {useCustomerPortal} from '../../context';
-import ActivationKeysActionsButton from './Bar';
+import ActivationKeysManagementBar from './Bar';
 import {
 	ACTIVATION_KEYS_LICENSE_FILTER_TYPES,
 	ACTIVATION_STATUS,
@@ -164,7 +164,7 @@ const DXPActivationKeysTable = ({project, sessionId}) => {
 				/>
 			</div>
 
-			<ActivationKeysActionsButton
+			<ActivationKeysManagementBar
 				accountKey={project.accountKey}
 				sessionId={sessionId}
 			/>
