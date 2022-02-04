@@ -13,7 +13,6 @@ import ClayAlert from '@clayui/alert';
 import ClayIcon from '@clayui/icon';
 import {useState} from 'react';
 import {useApplicationProvider} from '../../../../../common/context/AppPropertiesProvider';
-import {getIconSpriteMap} from '../../../../../common/providers/ClayProvider';
 import {exportLicenseKeys} from '../../../../../common/services/liferay/rest/raysource/LicenseKeys';
 import downloadFromBlob from '../../../../../common/utils/downloadFromBlob';
 import ButtonDropDown from '../../../components/ButtonDropDown';
@@ -82,7 +81,6 @@ const ActivationKeysActionsButton = ({accountKey, sessionId}) => {
 							ALERT_DOWNLOAD_TYPE[activationKeysdownloadStatus]
 						}
 						onClose={() => setActivationKeysdownloadStatus('')}
-						spritemap={getIconSpriteMap()}
 					>
 						{
 							ALERT_ACTIVATION_KEYS_DOWNLOAD_TEXT[
