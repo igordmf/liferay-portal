@@ -40,10 +40,9 @@ const ButtonDropDown = ({
 						key={label}
 						onClick={onClick}
 					>
-						<>
-							{icon}
-							{label}
-						</>
+						{icon}
+
+						{label}
 					</ClayDropDown.Item>
 				))}
 			</ClayDropDown.ItemList>
