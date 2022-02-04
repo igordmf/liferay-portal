@@ -45,7 +45,7 @@ const ActivationKeysActionsButton = ({accountKey, sessionId}) => {
 			const extensionFile = EXTENSION_FILE_TYPES[contentType] || '.txt';
 			const licenseBlob = await license.blob();
 
-			setActivationKeysdownloadStatus('success');
+			setActivationKeysdownloadStatus(ALERT_DOWNLOAD_TYPE.success);
 
 			return downloadFromBlob(
 				licenseBlob,
@@ -53,7 +53,7 @@ const ActivationKeysActionsButton = ({accountKey, sessionId}) => {
 			);
 		}
 
-		setActivationKeysdownloadStatus('danger');
+		setActivationKeysdownloadStatus(ALERT_DOWNLOAD_TYPE.danger);
 	};
 
 	const activationKeysActionsItems = [
