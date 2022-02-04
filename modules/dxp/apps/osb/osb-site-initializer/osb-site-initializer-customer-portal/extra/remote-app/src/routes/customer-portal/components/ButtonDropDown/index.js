@@ -35,7 +35,7 @@ const ButtonDropDown = ({
 			{...props}
 		>
 			<ClayDropDown.ItemList>
-				{items.map(({icon, label, onClick}) => (
+				{items?.map(({icon, label, onClick}) => (
 					<ClayDropDown.Item
 						className="cp-activation-keys-drop-down-item font-weight-semi-bold px-3 rounded-xs text-neutral-8"
 						key={label}
