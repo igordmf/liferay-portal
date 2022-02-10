@@ -128,3 +128,23 @@ export async function getExportedLicenseKeys(
 
 	return response;
 }
+
+export async function putDeactivateKeys(
+	licenseKeyDownloadURL,
+	licenseKeyIds,
+	sessionId
+) {
+	// eslint-disable-next-line @liferay/portal/no-global-fetch
+	const response = await fetch(
+		`${licenseKeyDownloadURL}/license-keys/activate?${licenseKeyIds}`,
+
+		{
+			headers: {
+				'Okta-Session-ID': sessionId,
+			},
+			method: 'PUT',
+		}
+	);
+
+	return response;
+}
