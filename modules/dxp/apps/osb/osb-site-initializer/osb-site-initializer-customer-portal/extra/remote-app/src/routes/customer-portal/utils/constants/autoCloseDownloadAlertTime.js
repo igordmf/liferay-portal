@@ -10,6 +10,6 @@
  */
 
 export const AUTO_CLOSE_DOWNLOAD_ALERT_TIME = {
-	fail: false,
+	danger: false,
 	success: 2000,
 };
