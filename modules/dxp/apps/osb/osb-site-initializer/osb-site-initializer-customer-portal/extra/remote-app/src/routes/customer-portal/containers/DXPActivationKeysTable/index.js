@@ -185,6 +185,7 @@ const DXPActivationKeysTable = ({project, sessionId}) => {
 						licenseKeyDownloadURL={licenseKeyDownloadURL}
 						selectedKeys={activationKeysChecked}
 						sessionId={sessionId}
+						setActivationKeys={setActivationKeys}
 					/>
 				</div>
 
