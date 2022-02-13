@@ -26,9 +26,19 @@ const DeactivateKeysModal = ({
 		<ClayModal center observer={observer}>
 			<div className="pt-4 px-4">
 				<div className="flex-row mb-1">
-					<h2 className="text-neutral-10">
-						Confirm Deactivation Terms
-					</h2>
+					<div className="d-flex justify-content-between">
+						<h2 className="text-neutral-10">
+							Confirm Deactivation Terms
+						</h2>
+
+						<Button
+							appendIcon="times"
+							aria-label="close"
+							className="align-self-start"
+							displayType="unstyled"
+							onClick={onClose}
+						/>
+					</div>
 
 					<p className="mb-6 mt-5 text-neutral-10">
 						I certify that the instance(s) activated with the
