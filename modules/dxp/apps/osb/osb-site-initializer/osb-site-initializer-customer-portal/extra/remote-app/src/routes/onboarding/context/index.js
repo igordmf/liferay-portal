@@ -16,6 +16,7 @@ import {Liferay} from '../../../common/services/liferay';
 import {
 	addAccountFlag,
 	getAccountSubscriptionGroups,
+	getDXPCloudEnvironment,
 	getKoroneikiAccounts,
 	getUserAccount,
 } from '../../../common/services/liferay/graphql/queries';
@@ -32,6 +33,7 @@ const AppContext = createContext();
 const AppContextProvider = ({assetsPath, children}) => {
 	const {oktaSessionURL} = useApplicationProvider();
 	const [state, dispatch] = useReducer(reducer, {
+		DXPCloudActivationStatus: undefined,
 		assetsPath,
 		koroneikiAccount: {},
 		project: undefined,
@@ -123,6 +125,25 @@ const AppContextProvider = ({assetsPath, children}) => {
 			}
 		};
 
+		const getDXPCloudActivationStatus = async (accountKey) => {
+			const {data} = await client.query({
+				query: getDXPCloudEnvironment,
+				variables: {
+					filter: `accountKey eq '${accountKey}'`,
+					scopeKey: Liferay.ThemeDisplay.getScopeGroupId(),
+				},
+			});
+
+			if (data) {
+				const status = !!data.c?.dXPCloudEnvironments?.items.length;
+
+				dispatch({
+					payload: status,
+					type: actionTypes.UPDATE_DXPCLOUD_ACTIVATION_STATUS,
+				});
+			}
+		};
+
 		const fetchData = async () => {
 			const projectExternalReferenceCode = getAccountKey();
 
@@ -148,6 +169,7 @@ const AppContextProvider = ({assetsPath, children}) => {
 				if (accountBrief) {
 					getProject(projectExternalReferenceCode, accountBrief);
 					getSubscriptionGroups(projectExternalReferenceCode);
+					getDXPCloudActivationStatus(projectExternalReferenceCode);
 					getSessionId();
 
 					client.mutate({
