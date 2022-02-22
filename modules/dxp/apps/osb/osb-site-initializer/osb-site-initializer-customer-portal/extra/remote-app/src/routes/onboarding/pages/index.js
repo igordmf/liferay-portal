@@ -20,20 +20,25 @@ import Welcome from './Welcome';
 
 const Pages = () => {
 	const [
-		{project, sessionId, step, subscriptionGroups},
+		{
+			DXPCloudActivationStatus,
+			project,
+			sessionId,
+			step,
+			subscriptionGroups,
+		},
 		dispatch,
 	] = useOnboarding();
 
 	const invitesPageHandle = () => {
 		const hasSubscriptionsDXPCloud = !!subscriptionGroups?.length;
 
-		if (hasSubscriptionsDXPCloud) {
+		if (hasSubscriptionsDXPCloud && !DXPCloudActivationStatus) {
 			dispatch({
 				payload: ONBOARDING_STEP_TYPES.dxpCloud,
 				type: actionTypes.CHANGE_STEP,
 			});
-		}
-		else {
+		} else {
 			window.location.href = PAGE_ROUTER_TYPES.project(
 				project.accountKey
 			);
@@ -60,8 +65,7 @@ const Pages = () => {
 								payload: ONBOARDING_STEP_TYPES.successDxpCloud,
 								type: actionTypes.CHANGE_STEP,
 							});
-						}
-						else {
+						} else {
 							window.location.href = PAGE_ROUTER_TYPES.project(
 								project.accountKey
 							);
