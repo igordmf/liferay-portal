@@ -11,6 +11,7 @@
 
 export const actionTypes = {
 	CHANGE_STEP: 'CHANGE_STEP',
+	UPDATE_DXPCLOUD_ACTIVATION_STATUS: 'UPDATE_DXPCLOUD_ACTIVATION_STATUS',
 	UPDATE_PROJECT: 'UPDATE_PROJECT',
 	UPDATE_SESSION_ID: 'UPDATE_SESSION_ID',
 	UPDATE_SUBSCRIPTION_GROUPS: 'UPDATE_SUBSCRIPTION_GROUPS',
@@ -47,6 +48,12 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				subscriptionGroups: action.payload,
+			};
+		}
+		case actionTypes.UPDATE_DXPCLOUD_ACTIVATION_STATUS: {
+			return {
+				...state,
+				DXPCloudActivationStatus: action.payload,
 			};
 		}
 		default: {
