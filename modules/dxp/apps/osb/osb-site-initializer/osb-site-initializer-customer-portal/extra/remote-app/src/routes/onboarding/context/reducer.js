@@ -53,7 +53,7 @@ const reducer = (state, action) => {
 		case actionTypes.UPDATE_DXPCLOUD_ACTIVATION_STATUS: {
 			return {
 				...state,
-				DXPCloudActivationStatus: action.payload,
+				DXPCloudActivationSubmittedStatus: action.payload,
 			};
 		}
 		default: {

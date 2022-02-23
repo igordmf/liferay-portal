@@ -21,7 +21,7 @@ import Welcome from './Welcome';
 const Pages = () => {
 	const [
 		{
-			DXPCloudActivationStatus,
+			DXPCloudActivationSubmittedStatus,
 			project,
 			sessionId,
 			step,
@@ -33,7 +33,7 @@ const Pages = () => {
 	const invitesPageHandle = () => {
 		const hasSubscriptionsDXPCloud = !!subscriptionGroups?.length;
 
-		if (hasSubscriptionsDXPCloud && !DXPCloudActivationStatus) {
+		if (hasSubscriptionsDXPCloud && !DXPCloudActivationSubmittedStatus) {
 			dispatch({
 				payload: ONBOARDING_STEP_TYPES.dxpCloud,
 				type: actionTypes.CHANGE_STEP,
