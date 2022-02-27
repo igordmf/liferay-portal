@@ -17,6 +17,7 @@ import client from '../../../../apolloClient';
 import {
 	addAdminDXPCloud,
 	addDXPCloudEnvironment,
+	getDXPCloudEnvironment,
 	getDXPCloudPageInfo,
 	updateAccountSubscriptionGroups,
 } from '../../../../common/services/liferay/graphql/queries';
@@ -33,6 +34,7 @@ const SetupDXPCloudPage = ({
 	leftButton,
 	project,
 	setFieldValue,
+	setFormAlreadySubmitted,
 	subscriptionGroupId,
 	touched,
 	values,
@@ -82,6 +84,29 @@ const SetupDXPCloudPage = ({
 
 	const sendEmail = async () => {
 		const dxp = values?.dxp;
+
+		const getDXPCloudActivationSubmitedStatus = async (accountKey) => {
+			const {data} = await client.query({
+				query: getDXPCloudEnvironment,
+				variables: {
+					filter: `accountKey eq '${accountKey}'`,
+					scopeKey: Liferay.ThemeDisplay.getScopeGroupId(),
+				},
+			});
+
+			if (data) {
+				const status = !!data.c?.dXPCloudEnvironments?.items.length;
+
+				return status;
+			}
+
+			return false;
+		};
+
+		const alreadySubmited = getDXPCloudActivationSubmitedStatus();
+		if (alreadySubmited) {
+			setFormAlreadySubmitted(true);
+		}
 
 		if (dxp) {
 			const {data} = await client.mutate({
