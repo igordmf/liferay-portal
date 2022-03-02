@@ -33,8 +33,8 @@ const AppContext = createContext();
 const AppContextProvider = ({assetsPath, children}) => {
 	const {oktaSessionURL} = useApplicationProvider();
 	const [state, dispatch] = useReducer(reducer, {
-		DXPCloudActivationStatus: undefined,
 		assetsPath,
+		dxpCloudActivationSubmittedStatus: undefined,
 		koroneikiAccount: {},
 		project: undefined,
 		sessionId: '',
@@ -135,11 +135,12 @@ const AppContextProvider = ({assetsPath, children}) => {
 			});
 
 			if (data) {
-				const status = !!data.c?.dXPCloudEnvironments?.items.length;
+				const status = !!data.c?.dXPCloudEnvironments?.items?.length;
 
 				dispatch({
 					payload: status,
-					type: actionTypes.UPDATE_DXPCLOUD_ACTIVATION_STATUS,
+					type:
+						actionTypes.UPDATE_DXP_CLOUD_ACTIVATION_SUBMITTED_STATUS,
 				});
 			}
 		};
