@@ -103,7 +103,7 @@ const SetupDXPCloudPage = ({
 			return false;
 		};
 
-		const alreadySubmited = getDXPCloudActivationSubmitedStatus();
+		const alreadySubmited = await getDXPCloudActivationSubmitedStatus();
 		if (alreadySubmited) {
 			setFormAlreadySubmitted(true);
 		}
