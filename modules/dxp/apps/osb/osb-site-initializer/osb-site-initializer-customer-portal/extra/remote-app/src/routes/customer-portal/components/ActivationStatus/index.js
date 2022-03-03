@@ -61,7 +61,7 @@ const AlreadySubmittedFormModal = ({setVisibleModal}) => {
 					<h2 className="mb-1 text-neutral-10">Set up DXP Cloud</h2>
 
 					<p className="text-neutral-7 text-paragraph-sm">
-						We’ll need a few details to finish building your DXP
+						We&#39;ll need a few details to finish building your DXP
 						environment(s).
 					</p>
 				</header>
