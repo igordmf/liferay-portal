@@ -66,7 +66,7 @@ const AlreadySubmittedFormModal = ({setVisibleModal}) => {
 					</p>
 				</header>
 
-				<h5 className="mb-1 mt-1 text-neutral-10">
+				<h5 className="my-1 text-neutral-10">
 					Another user already submitted the DXP Cloud activation
 					request.
 				</h5>
