@@ -61,7 +61,7 @@ const DeactivateKeysModal = ({
 						onClick={deactivateKeysConfirm}
 					>
 						{isDeactivating
-							? 'Deactivating......'
+							? 'Deactivating...'
 							: 'Confirm & Deactivate Keys'}
 					</Button>
 				</div>

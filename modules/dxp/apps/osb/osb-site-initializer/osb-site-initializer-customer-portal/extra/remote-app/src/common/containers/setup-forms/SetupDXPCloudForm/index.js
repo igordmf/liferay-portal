@@ -95,7 +95,7 @@ const SetupDXPCloudPage = ({
 			});
 
 			if (data) {
-				const status = !!data.c?.dXPCloudEnvironments?.items.length;
+				const status = !!data.c?.dXPCloudEnvironments?.items?.length;
 
 				return status;
 			}
