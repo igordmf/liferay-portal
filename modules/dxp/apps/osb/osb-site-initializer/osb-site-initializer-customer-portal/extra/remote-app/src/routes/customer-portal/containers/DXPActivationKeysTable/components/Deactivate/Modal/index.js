@@ -60,9 +60,14 @@ const DeactivateKeysModal = ({
 						})}
 						onClick={deactivateKeysConfirm}
 					>
-						{isDeactivating
-							? 'Deactivating...'
-							: 'Confirm & Deactivate Keys'}
+						{isDeactivating ? (
+							<>
+								<span className="cp-spinner mr-2 mt-1 spinner-border spinner-border-sm"></span>
+								Deactivating...
+							</>
+						) : (
+							'Confirm & Deactivate Keys'
+						)}
 					</Button>
 				</div>
 			</div>
