@@ -1,8 +1,8 @@
 {
 	"label": {
-		"en-US": "Analytics Cloud Environment"
+		"en-US": "Analytics Cloud Workspace"
 	},
-	"name": "AnalyticsCloudEnvironment",
+	"name": "AnalyticsCloudWorkspace",
 	"objectFields": [
 		{
 			"DBType": "String",
@@ -76,7 +76,7 @@
 		}
 	],
 	"pluralLabel": {
-		"en_US": "Analytics Cloud Environments"
+		"en_US": "Analytics Cloud Workspaces"
 	},
 	"scope": "site",
 	"system": false
