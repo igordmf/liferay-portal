@@ -63,9 +63,14 @@ const AppContextProvider = ({assetsPath, children}) => {
 						({name}) => name === ROLE_TYPES.admin.key
 					);
 
+				const isStaff = data.userAccount?.roleBriefs?.some(
+					(role) => role.name === 'Administrator'
+				);
+
 				const userAccount = {
 					...data.userAccount,
 					isAdmin: isAccountAdministrator,
+					isStaff,
 				};
 
 				dispatch({
