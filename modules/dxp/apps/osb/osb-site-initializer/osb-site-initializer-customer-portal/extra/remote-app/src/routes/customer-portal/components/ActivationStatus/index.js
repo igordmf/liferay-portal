@@ -156,7 +156,7 @@ const ActivationStatus = ({
 				'Your DXP Cloud environments are being set up and will be available soon.',
 		},
 		[STATUS_TAG_TYPE_NAMES.notActivated]: {
-			buttonLink: userAccount.isAdmin || userAccount.isStaff && (
+			buttonLink: (userAccount.isAdmin || userAccount.isStaff) && (
 				<Button
 					appendIcon="order-arrow-right"
 					className="btn btn-link font-weight-semi-bold p-0 text-brand-primary text-paragraph"
