@@ -79,9 +79,9 @@
 			"indexed": true,
 			"indexedAsKeyword": false,
 			"label": {
-				"en-US": "Group Id"
+				"en-US": "Workspace Group ID"
 			},
-			"name": "groupId",
+			"name": "workspaceGroupId",
 			"required": false
 		}
 	],
