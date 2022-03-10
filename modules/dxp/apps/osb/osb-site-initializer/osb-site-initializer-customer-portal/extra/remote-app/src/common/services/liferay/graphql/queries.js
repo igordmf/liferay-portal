@@ -176,9 +176,9 @@ export const getDXPCloudEnvironment = gql`
 export const getAnalyticsCloudWorkspace = gql`
 	query getAnalyticsCloudWorkspace($scopeKey: String, $filter: String) {
 		c {
-			AnalyticsCloudWorkspaces(filter: $filter, scopeKey: $scopeKey) {
+			analyticsCloudWorkspaces(filter: $filter, scopeKey: $scopeKey) {
 				items {
-					workspaceName
+					workspaceGroupId
 				}
 			}
 		}
