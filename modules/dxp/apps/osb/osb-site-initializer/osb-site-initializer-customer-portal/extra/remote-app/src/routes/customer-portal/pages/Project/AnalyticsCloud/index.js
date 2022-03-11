@@ -18,8 +18,8 @@ import {PRODUCT_TYPES} from '../../../utils/constants';
 
 const AnalyticsCloud = ({project, subscriptionGroups, userAccount}) => {
 	const [
-		analyticsCloudEnvironment,
-		setAnalyticsCloudEnvironment,
+		analyticsCloudWorkspace,
+		setAnalyticsCloudWorkspace,
 	] = useState();
 
 	useEffect(() => {
@@ -33,10 +33,10 @@ const AnalyticsCloud = ({project, subscriptionGroups, userAccount}) => {
 			});
 
 			if (data) {
-				const items = data.c?.AnalyticsCloudWorkspaces?.items;
+				const items = data.c?.analyticsCloudWorkspaces?.items;
 
 				if (items.length) {
-					setAnalyticsCloudEnvironment(items[0]);
+					setAnalyticsCloudWorkspace(items[0]);
 				}
 			}
 		};
@@ -47,7 +47,7 @@ const AnalyticsCloud = ({project, subscriptionGroups, userAccount}) => {
 	return (
 		<div className="mr-4">
 			<ActivationStatus.AnalyticsCloud
-				analyticsCloudEnvironment={analyticsCloudEnvironment}
+				analyticsCloudWorkspace={analyticsCloudWorkspace}
 				project={project}
 				subscriptionGroupAnalyticsCloud={subscriptionGroups.find(
 					(subscriptionGroup) =>

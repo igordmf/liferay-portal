@@ -25,7 +25,7 @@ import {
 import ActivationStatusLayout from '../Layout';
 
 const ActivationStatusAnalyticsCloud = ({
-	analyticsCloudEnvironment,
+	analyticsCloudWorkspace,
 	project,
 	subscriptionGroupAnalyticsCloud,
 	userAccount,
@@ -45,7 +45,7 @@ const ActivationStatusAnalyticsCloud = ({
 			buttonLink: (
 				<a
 					className="font-weight-semi-bold m-0 p-0 text-brand-primary text-paragraph"
-					href={`https://analytics.liferay.com/workspace/${analyticsCloudEnvironment?.workspaceName}/sites`}
+					href={`https://analytics.liferay.com/workspace/${analyticsCloudWorkspace?.workspaceName}/sites`}
 					rel="noopener noreferrer"
 					target="_blank"
 				>
@@ -99,10 +99,10 @@ const ActivationStatusAnalyticsCloud = ({
 			});
 
 			if (data) {
-				const ActivationStatusDateRange = getActivationStatusDateRange(
+				const activationStatusDateRange = getActivationStatusDateRange(
 					data.c?.accountSubscriptionTerms?.items
 				);
-				setActivationStatusDate(ActivationStatusDateRange);
+				setActivationStatusDate(activationStatusDateRange);
 			}
 		};
 
