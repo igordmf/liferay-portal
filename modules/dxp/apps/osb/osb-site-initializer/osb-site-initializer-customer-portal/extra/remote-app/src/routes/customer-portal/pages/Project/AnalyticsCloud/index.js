@@ -17,10 +17,7 @@ import ActivationStatus from '../../../components/ActivationStatus/index';
 import {PRODUCT_TYPES} from '../../../utils/constants';
 
 const AnalyticsCloud = ({project, subscriptionGroups, userAccount}) => {
-	const [
-		analyticsCloudWorkspace,
-		setAnalyticsCloudWorkspace,
-	] = useState();
+	const [analyticsCloudWorkspace, setAnalyticsCloudWorkspace] = useState();
 
 	useEffect(() => {
 		const getAnalyticsCloudData = async () => {
