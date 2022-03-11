@@ -65,7 +65,7 @@ const ActivationStatusAnalyticsCloud = ({
 			title: 'Analytics Cloud Activation',
 		},
 		[STATUS_TAG_TYPE_NAMES.notActivated]: {
-			buttonLink: userAccount.isAdmin && (
+			buttonLink: (userAccount.isAdmin || userAccount.isStaff) && (
 				<Button
 					appendIcon="order-arrow-right"
 					className="btn btn-link font-weight-semi-bold p-0 text-brand-primary text-paragraph"
