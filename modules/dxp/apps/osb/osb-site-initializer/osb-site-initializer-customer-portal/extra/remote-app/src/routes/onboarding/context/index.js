@@ -17,6 +17,7 @@ import {
 	addAccountFlag,
 	getAccountSubscriptionGroups,
 	getAccountUserAccountsByExternalReferenceCode,
+	getAnalyticsCloudWorkspace,
 	getDXPCloudEnvironment,
 	getKoroneikiAccounts,
 	getUserAccount,
@@ -25,7 +26,6 @@ import {getCurrentSession} from '../../../common/services/okta/rest/sessions';
 import {ROLE_TYPES, ROUTE_TYPES} from '../../../common/utils/constants';
 import {getAccountKey} from '../../../common/utils/getAccountKey';
 import {isValidPage} from '../../../common/utils/page.validation';
-import {PRODUCT_TYPES} from '../../customer-portal/utils/constants';
 import {ONBOARDING_STEP_TYPES} from '../utils/constants';
 import reducer, {actionTypes} from './reducer';
 
@@ -36,6 +36,7 @@ const MAX_PAGE_SIZE = 9999;
 const AppContextProvider = ({assetsPath, children}) => {
 	const {oktaSessionURL} = useApplicationProvider();
 	const [state, dispatch] = useReducer(reducer, {
+		analyticsCloudActivationSubmittedStatus: undefined,
 		assetsPath,
 		dxpCloudActivationSubmittedStatus: undefined,
 		koroneikiAccount: {},
@@ -164,7 +165,7 @@ const AppContextProvider = ({assetsPath, children}) => {
 			const {data} = await client.query({
 				query: getAccountSubscriptionGroups,
 				variables: {
-					filter: `(accountKey eq '${accountKey}') and (name eq '${PRODUCT_TYPES.dxpCloud}')`,
+					filter: `accountKey eq '${accountKey}'`,
 				},
 			});
 
@@ -197,6 +198,27 @@ const AppContextProvider = ({assetsPath, children}) => {
 			}
 		};
 
+		const getAnalyticsCloudActivationStatus = async (accountKey) => {
+			const {data} = await client.query({
+				query: getAnalyticsCloudWorkspace,
+				variables: {
+					filter: `accountKey eq '${accountKey}'`,
+					scopeKey: Liferay.ThemeDisplay.getScopeGroupId(),
+				},
+			});
+
+			if (data) {
+				const status = !!data.c?.analyticsCloudWorkspaces?.items
+					?.length;
+
+				dispatch({
+					payload: status,
+					type:
+						actionTypes.UPDATE_ANALYTICS_CLOUD_ACTIVATION_SUBMITTED_STATUS,
+				});
+			}
+		};
+
 		const fetchData = async () => {
 			const projectExternalReferenceCode = getAccountKey();
 
@@ -223,6 +245,9 @@ const AppContextProvider = ({assetsPath, children}) => {
 					getProject(projectExternalReferenceCode, accountBrief);
 					getSubscriptionGroups(projectExternalReferenceCode);
 					getDXPCloudActivationStatus(projectExternalReferenceCode);
+					getAnalyticsCloudActivationStatus(
+						projectExternalReferenceCode
+					);
 					getSessionId();
 					getTotalAdministratorAccounts(projectExternalReferenceCode);
 
