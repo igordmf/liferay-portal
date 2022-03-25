@@ -43,7 +43,6 @@ const SetupAnalyticsCloudPage = ({
 	errors,
 	handlePage,
 	leftButton,
-	onClose,
 	project,
 	setFieldValue,
 	setFormAlreadySubmitted,
@@ -178,7 +177,7 @@ const SetupAnalyticsCloudPage = ({
 					})
 				);
 			}
-			handlePage();
+			handlePage(true);
 		}
 	};
 
@@ -190,7 +189,7 @@ const SetupAnalyticsCloudPage = ({
 					<Button
 						borderless
 						className="text-neutral-10"
-						onClick={() => onClose()}
+						onClick={() => handlePage(false)}
 					>
 						{leftButton}
 					</Button>
