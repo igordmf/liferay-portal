@@ -35,6 +35,13 @@
 		"scope": "2"
 	},
 	{
+		"actionId": "ADD_OBJECT_ENTRY",
+		"primKey": "0",
+		"resourceName": "com.liferay.object#[$OBJECT_DEFINITION_ID:IncidentReportContactAnalyticsCloud$]",
+		"roleName": "Customer Portal Member",
+		"scope": "2"
+	},
+	{
 		"actionId": "VIEW",
 		"primKey": "0",
 		"resourceName": "com.liferay.journal.model.JournalFolder",
