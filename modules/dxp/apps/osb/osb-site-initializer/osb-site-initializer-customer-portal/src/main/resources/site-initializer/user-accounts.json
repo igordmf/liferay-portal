@@ -3,9 +3,7 @@
 		"accountBriefs": [
 			{
 				"externalReferenceCode": "ERC-001",
-				"roleBriefs": [
-					"Account Administrator"
-				]
+				"roleBriefs": ["Account Administrator"]
 			},
 			{
 				"externalReferenceCode": "ERC-002"
@@ -69,6 +67,9 @@
 			},
 			{
 				"externalReferenceCode": "ERC-008"
+			},
+			{
+				"externalReferenceCode": "ERC-009"
 			}
 		],
 		"alternateName": "test",
