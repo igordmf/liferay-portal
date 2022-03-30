@@ -28,6 +28,13 @@
 		"scope": "1"
 	},
 	{
+		"actionId": "ADD_OBJECT_ENTRY",
+		"primKey": "0",
+		"resourceName": "com.liferay.object#[$OBJECT_DEFINITION_ID:AnalyticsCloudWorkspace$]",
+		"roleName": "Customer Portal Member",
+		"scope": "2"
+	},
+	{
 		"actionId": "VIEW",
 		"primKey": "0",
 		"resourceName": "com.liferay.journal.model.JournalFolder",
