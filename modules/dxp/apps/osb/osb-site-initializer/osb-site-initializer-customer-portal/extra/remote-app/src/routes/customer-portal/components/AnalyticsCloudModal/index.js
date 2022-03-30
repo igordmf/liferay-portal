@@ -66,7 +66,7 @@ const AnalyticsCloudModal = ({
 		<ClayModal center observer={observer}>
 			{formAlreadySubmitted ? (
 				<AlreadySubmittedFormModal
-					setVisibleModal={onClose}
+					onClose={onClose}
 					submittedModalTexts={submittedModalTexts}
 				/>
 			) : (

@@ -11,7 +11,7 @@
 
 import Button from '../../../../../common/components/Button';
 
-const AlreadySubmittedFormModal = ({setVisibleModal, submittedModalTexts}) => {
+const AlreadySubmittedFormModal = ({onClose, submittedModalTexts}) => {
 	return (
 		<div className="pt-4 px-4">
 			<div className="flex-row mb-2">
@@ -38,7 +38,7 @@ const AlreadySubmittedFormModal = ({setVisibleModal, submittedModalTexts}) => {
 				<Button
 					className="px-3 py-2"
 					displayType="primary"
-					onClick={() => setVisibleModal(false)}
+					onClick={() => onClose(true)}
 				>
 					Done
 				</Button>

@@ -48,7 +48,6 @@ const SetupDXPCloudModal = ({
 	observer,
 	onClose,
 	project,
-	setVisibleModal,
 	subscriptionGroupId,
 }) => {
 	const [formAlreadySubmitted, setFormAlreadySubmitted] = useState(false);
@@ -57,7 +56,7 @@ const SetupDXPCloudModal = ({
 		<ClayModal center observer={observer}>
 			{formAlreadySubmitted ? (
 				<AlreadySubmittedFormModal
-					setVisibleModal={setVisibleModal}
+					onClose={onClose}
 					submittedModalTexts={submittedModalTexts}
 				/>
 			) : (
@@ -227,7 +226,6 @@ const ActivationStatusDXPCloud = ({
 					{...setupModalProps}
 					onClose={onCloseSetupModal}
 					project={project}
-					setVisibleModal={setVisibleSetup}
 					subscriptionGroupId={
 						subscriptionGroupDXPCloud.accountSubscriptionGroupId
 					}
