@@ -124,8 +124,8 @@ const AppContextProvider = ({assetsPath, children, page}) => {
 						({name}) => name === ROLE_TYPES.admin.key
 					);
 
-				const isStaff = data.userAccount?.roleBriefs?.some(
-					(role) => role.name === 'Administrator'
+				const isStaff = data.userAccount?.organizationBriefs?.some(
+					(organization) => organization.name === 'Liferay Staff'
 				);
 
 				const userAccount = {
