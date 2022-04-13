@@ -495,8 +495,8 @@ export const getUserAccount = gql`
 				name
 			}
 			organizationBriefs {
-        name
-      }
+				name
+			}
 		}
 	}
 `;
